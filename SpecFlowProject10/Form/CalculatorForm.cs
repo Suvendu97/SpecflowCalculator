@@ -106,10 +106,25 @@ namespace Test.Form
             {
                 id = "126";
             }
+            else if (Operator == "^2")
+            {
+                id = "111";
+            }
             AppButtons button = new AppButtons(SearchCriteria.ByAutomationId(id), "Number1");
             button.Click();
 
             
+
+        }
+
+        public void EnterMode(string Mode)
+        {
+            AppMenu ClickView = new AppMenu(SearchCriteria.ByText("View"), "Option");
+            ClickView.doubleclick();
+
+            AppMenu clickscientific = new AppMenu(SearchCriteria.ByText(Mode), "Mode");
+            clickscientific.Click();
+
 
         }
 

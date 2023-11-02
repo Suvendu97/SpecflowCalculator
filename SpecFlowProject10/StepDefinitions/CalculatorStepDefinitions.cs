@@ -46,6 +46,7 @@ namespace SpecFlowProject10.StepDefinitions
             // calbuttoon.ClickCButtonItem();
             //Button button = AppManager.AppGetWindow().cwindow.Get<Button>(SearchCriteria.ByAutomationId("131"));
             CalculatorForm calculator = new CalculatorForm(SearchCriteria.All, "");
+            calculator.EnterMode("Standard");
             calculator.EnterNumber("12");
             calculator.EnterOperator("+");
             calculator.EnterNumber("999");
@@ -54,6 +55,16 @@ namespace SpecFlowProject10.StepDefinitions
             calculator.EnterOperator("+");
             calculator.EnterNumber("19");
             calculator.EnterOperator("=");
+
+            calculator.EnterMode("Scientific");
+            calculator.EnterNumber("12");
+            calculator.EnterOperator("+");
+            calculator.EnterNumber("999");
+            calculator.EnterOperator("=");
+            calculator.EnterOperator("M+");
+            calculator.EnterNumber("19");
+            calculator.EnterOperator("^2");
+
 
         }
 

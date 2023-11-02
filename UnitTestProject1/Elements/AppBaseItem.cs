@@ -45,19 +45,25 @@ namespace UnitTestProject1.Elements
 
 
         }
-       
-            
 
-
-
-            // var viewStandard = (Menu)UIGetElement().Get(SearchCriteria.ByText("Scientific"));
-            // viewStandard.Click();
-            //AppBase.UIMenu(searchCriteria,"Calculator").Click();
-
-            // var viewHelp = _mainWindow.Get<Menu>(SearchCriteria.ByText("View Help"));
+        public void doubleclick()
+        {
+            var ClickMenu = UIGetElement();
+            ClickMenu.DoubleClick();
         }
 
+
+
+
+
+        // var viewStandard = (Menu)UIGetElement().Get(SearchCriteria.ByText("Scientific"));
+        // viewStandard.Click();
+        //AppBase.UIMenu(searchCriteria,"Calculator").Click();
+
+        // var viewHelp = _mainWindow.Get<Menu>(SearchCriteria.ByText("View Help"));
     }
+
+}
 
 
 
