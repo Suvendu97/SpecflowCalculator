@@ -18,8 +18,6 @@ namespace UnitTestProject1.appl
         static Application application;
         // public Application application;
 
-
-
         public static void LanuchApp(string path)
         {
 
@@ -30,42 +28,8 @@ namespace UnitTestProject1.appl
 
         public static AppWindow AppGetWindow(string title = "")
         {
-            //  title == "" ? "Calculator" :title
-            /*
-             * if (condition)
-             * {
-             * } 
-             * else 
-             * {
-             * }
-             * condition ? r1 : r2
-            */
-
             return new AppWindow(application.GetWindow(title == "" ? "Calculator" : title));
         }
-
-       
-
-        
-
-
-
-
-
-
-
-
-        /*
-       public void windowcapture(string title)
-
-       {
-           window = application.GetWindow(title, InitializeOption.NoCache);
-
-       }
-
-*/
-
-
 
     }
 }

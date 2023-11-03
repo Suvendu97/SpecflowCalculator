@@ -40,7 +40,6 @@ namespace UnitTestProject1.Elements
         public void Click()
         {
             var clickButton = UIGetElement();
-           // clickButton.Get(SearchCriteria.ByAutomationId())
             clickButton.Click();
 
 
@@ -51,16 +50,6 @@ namespace UnitTestProject1.Elements
             var ClickMenu = UIGetElement();
             ClickMenu.DoubleClick();
         }
-
-
-
-
-
-        // var viewStandard = (Menu)UIGetElement().Get(SearchCriteria.ByText("Scientific"));
-        // viewStandard.Click();
-        //AppBase.UIMenu(searchCriteria,"Calculator").Click();
-
-        // var viewHelp = _mainWindow.Get<Menu>(SearchCriteria.ByText("View Help"));
     }
 
 }

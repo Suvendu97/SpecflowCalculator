@@ -19,10 +19,6 @@ namespace UnitTestProject1.Elements
         {
         }
 
-
-        
-
-
     }
 }
 

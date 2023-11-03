@@ -28,22 +28,11 @@ namespace Test.Form
         }
         public string GetNumber(string value)
         {
-
             return "13" + value;
         }
 
-
         public void EnterNumber(string operation)
         {
-            //  AppButtons calbuttoon = new AppButtons();
-            //   calbuttoon.ClickCButtonItem();
-            // AppBaseItem.ClickButtonItem("131");
-            // AppBaseItem.Click(SearchCriteria.ByAutomationId("131"));
-            // AppBaseItem.Click(SearchCriteria.ByAutomationId("131"));
-            // button1.Click();
-
-
-
             // this for Buttons
             char[] EachButtons = new char[operation.Length];//12+999
 
@@ -54,8 +43,6 @@ namespace Test.Form
             }
             foreach (Char c in EachButtons)
             {
-
-                //string  button="button"+c.ToString();// button1,2
                 string value = Char.ToString(c);
                 string id = GetNumber(value);
 
@@ -112,9 +99,6 @@ namespace Test.Form
             }
             AppButtons button = new AppButtons(SearchCriteria.ByAutomationId(id), "Number1");
             button.Click();
-
-            
-
         }
 
         public void EnterMode(string Mode)
@@ -124,8 +108,6 @@ namespace Test.Form
 
             AppMenu clickscientific = new AppMenu(SearchCriteria.ByText(Mode), "Mode");
             clickscientific.Click();
-
-
         }
 
     }

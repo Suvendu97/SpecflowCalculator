@@ -27,8 +27,6 @@ namespace UnitTestProject1.appl
             appWindow = window;
         }
 
-        
-        
     }
 
     }
