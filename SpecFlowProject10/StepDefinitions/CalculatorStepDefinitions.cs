@@ -19,6 +19,7 @@ namespace SpecFlowProject10.StepDefinitions
     public class CalculatorStepDefinitions
     {
         Customvar calculatorvar1 = new Customvar();
+        CalculatorForm calculator = new CalculatorForm(SearchCriteria.All, "");
 
         [Given(@": Open  Calculator Application and")]
         public void GivenOpenCalculatorApplicationAnd()
@@ -45,8 +46,15 @@ namespace SpecFlowProject10.StepDefinitions
             // calbuttoon.ClickCButtonItem();
             // calbuttoon.ClickCButtonItem();
             //Button button = AppManager.AppGetWindow().cwindow.Get<Button>(SearchCriteria.ByAutomationId("131"));
-            CalculatorForm calculator = new CalculatorForm(SearchCriteria.All, "");
+            
             calculator.EnterMode("Standard");
+
+
+        }
+
+        [Then(@": Perform Operations in Standard Mode")]
+        public void ThenPerformOperationsInStandardMode()
+        {
             calculator.EnterNumber("12");
             calculator.EnterOperator("+");
             calculator.EnterNumber("999");
@@ -55,8 +63,17 @@ namespace SpecFlowProject10.StepDefinitions
             calculator.EnterOperator("+");
             calculator.EnterNumber("19");
             calculator.EnterOperator("=");
+        }
 
+        [Then(@":  Click on View Menu and select the Scientific Option")]
+        public void ThenClickOnViewMenuAndSelectTheScientificOption()
+        {
             calculator.EnterMode("Scientific");
+        }
+
+        [Then(@": Perform Operations in Scientific Mode")]
+        public void ThenPerformOperationsInScientificMode()
+        {
             calculator.EnterNumber("12");
             calculator.EnterOperator("+");
             calculator.EnterNumber("999");
@@ -64,13 +81,18 @@ namespace SpecFlowProject10.StepDefinitions
             calculator.EnterOperator("M+");
             calculator.EnterNumber("19");
             calculator.EnterOperator("^2");
+        }
 
-
+        [Then(@": Result Should Be (.*)")]
+        public void ThenResultShouldBe(int p0)
+        {
+            throw new PendingStepException();
         }
 
 
+
     }
-    }
+}
 /*
             //openeing the calculator app
             // Class1 class1 = Class1.Getinstance();
