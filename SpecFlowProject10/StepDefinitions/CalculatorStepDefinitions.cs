@@ -12,6 +12,7 @@ using UnitTestProject1.appl;
 using UnitTestProject1.CalculatorVar;
 using TestStack.White.UIItems.WPFUIItems;
 using Test.Form;
+using TechTalk.SpecFlow.CommonModels;
 
 namespace SpecFlowProject10.StepDefinitions
 {
@@ -70,7 +71,17 @@ namespace SpecFlowProject10.StepDefinitions
         [Then(@": Result Should Be (.*)")]
         public void ThenResultShouldBe(int p0)
         {
-            throw new PendingStepException();
+            string expectedValue = p0.ToString();
+            bool compareReslt = calculator.CompareResult(expectedValue);
+            if (compareReslt==true)
+            {
+                Console.WriteLine("The obtained result matches the expected value.");
+            }
+            else
+            {
+                Console.WriteLine("The obtained result does not match the expected value.");
+            }
+
         }
 
 

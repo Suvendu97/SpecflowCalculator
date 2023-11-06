@@ -10,6 +10,7 @@ using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.MenuItems;
 using TestStack.White.Utility;
+using UnitTestProject1.appl;
 using UnitTestProject1.Elements;
 
 
@@ -108,6 +109,29 @@ namespace Test.Form
 
             AppMenu clickscientific = new AppMenu(SearchCriteria.ByText(Mode), "Mode");
             clickscientific.Click();
+        }
+
+        public string GetResult()
+        {
+            //AppWindow appWindow = AppManager.AppGetWindow(); // Assuming this returns the Calculator's window
+            //TextBox resultTextBox = appWindow.appWindow.Get<TextBox>(SearchCriteria.ByAutomationId("150")); // Replace with the actual AutomationId of the result textbox
+            Label resultTextBox = AppManager.AppGetWindow().appWindow.Get<Label>(SearchCriteria.ByAutomationId("158"));
+            string result = resultTextBox.Text;
+            Console.WriteLine(result);
+            return result;
+        }
+
+        public bool CompareResult(string expectedValue)
+        {
+            bool result = false;
+            string obtainedResult = GetResult();
+            if (obtainedResult != null)
+            {
+                if(obtainedResult == expectedValue)
+                result=true;
+                return result;
+            }
+            return result; // or handle accordingly
         }
 
     }

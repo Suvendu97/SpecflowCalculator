@@ -160,6 +160,7 @@
     <Compile Include="CalculatorVar\Customvar.cs" />
     <Compile Include="Elements\AppBaseItem.cs" />
     <Compile Include="Elements\AppButtons.cs" />
+    <Compile Include="Elements\AppLabel.cs" />
     <Compile Include="Elements\AppSearchCriteria.cs" />
     <Compile Include="Elements\AppMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
