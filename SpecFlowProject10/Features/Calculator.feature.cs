@@ -77,9 +77,11 @@ namespace Test.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Performing Addation operation Using standard Version")]
+        [NUnit.Framework.CategoryAttribute("tag1")]
         public void PerformingAddationOperationUsingStandardVersion()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Performing Addation operation Using standard Version", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9

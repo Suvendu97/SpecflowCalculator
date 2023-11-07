@@ -12,6 +12,7 @@ using TestStack.White.UIItems.MenuItems;
 using TestStack.White.Utility;
 using UnitTestProject1.appl;
 using UnitTestProject1.Elements;
+using TestStack.White;
 
 
 namespace Test.Form
@@ -19,87 +20,47 @@ namespace Test.Form
 
     public class CalculatorForm : AppBaseItem
     {
-
-
         // private string one1=Getautoids("1");
         private AppButtons button1 = new AppButtons(SearchCriteria.ByAutomationId("131"), "Number1");
+        private AppButtons ButtonPlus => new AppButtons(SearchCriteria.ByAutomationId("93"), "Number");
+        private AppButtons ButtonMPlus => new AppButtons(SearchCriteria.ByAutomationId("125"), "Number");
+        private AppButtons ButtonEqual => new AppButtons(SearchCriteria.ByAutomationId("121"), "Number");
+        private AppButtons ButtonSquare => new AppButtons(SearchCriteria.ByAutomationId("111"), "Number");
+
 
         public CalculatorForm(SearchCriteria searchCriteria, string friendlyname) : base(searchCriteria, friendlyname)
         {
         }
-        public string GetNumber(string value)
+        public AppButtons getButton(string number)
         {
-            return "13" + value;
+            return new AppButtons(SearchCriteria.ByAutomationId($"13{number}"), "number");
+
         }
-
-        public void EnterNumber(string operation)
+  
+        public void EnterNumber(string number)
         {
-            // this for Buttons
-            char[] EachButtons = new char[operation.Length];//12+999
-
-            // Copy character by character into array 
-            for (int i = 0; i < operation.Length; i++)
+            for (int i = 0; i < number.Length; i++)
             {
-                EachButtons[i] = operation[i];// 12+999
-            }
-            foreach (Char c in EachButtons)
-            {
-                string value = Char.ToString(c);
-                string id = GetNumber(value);
-
-                AppButtons button = new AppButtons(SearchCriteria.ByAutomationId(id), "Number1");
+                string value = Char.ToString(number[i]);
+                AppButtons button = getButton(value);
                 button.Click();
-
             }
-
         }
 
-        public void EnterOperator(string Operator) 
+        public void EnterPlus() {
+            ButtonPlus.Click();
+        }
+        public void EnterMPlus()
         {
-            string  id = "";
-            if (Operator == "+")
-            {
-                id = "93";
-            }
-
-            else if (Operator == "-")
-            {
-                id = "94";
-            }
-
-            else if (Operator == "*")
-            {
-                id = "92";
-            }
-
-            else if (Operator == "/")
-            {
-                id = "91";
-            }
-
-            else if (Operator == "=")
-            {
-                id = "121";
-            }
-
-            else if (Operator == "MC")
-            {
-                id = "122";
-            }
-            else if (Operator == "M+")
-            {
-                id = "125";
-            }
-            else if (Operator == "M-")
-            {
-                id = "126";
-            }
-            else if (Operator == "^2")
-            {
-                id = "111";
-            }
-            AppButtons button = new AppButtons(SearchCriteria.ByAutomationId(id), "Number1");
-            button.Click();
+            ButtonMPlus.Click();
+        }
+        public void EnterEqual()
+        {
+            ButtonEqual.Click();
+        }
+        public void EnterSquare()
+        {
+            ButtonSquare.Click();
         }
 
         public void EnterMode(string Mode)
@@ -113,8 +74,6 @@ namespace Test.Form
 
         public string GetResult()
         {
-            //AppWindow appWindow = AppManager.AppGetWindow(); // Assuming this returns the Calculator's window
-            //TextBox resultTextBox = appWindow.appWindow.Get<TextBox>(SearchCriteria.ByAutomationId("150")); // Replace with the actual AutomationId of the result textbox
             Label resultTextBox = AppManager.AppGetWindow().appWindow.Get<Label>(SearchCriteria.ByAutomationId("158"));
             string result = resultTextBox.Text;
             Console.WriteLine(result);
@@ -132,6 +91,34 @@ namespace Test.Form
                 return result;
             }
             return result; // or handle accordingly
+        }
+
+
+        public static void CloseInstanceOfApplication(string processName)
+        {
+            var processes = System.Diagnostics.Process.GetProcesses().Where(p => p.ProcessName.Contains(processName));
+            if (processes.Any())
+            {
+                foreach (var process in processes)
+                {
+                    try
+                    {
+                        using (var app = Application.Attach(process))
+                        {
+                            app.Kill();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error while closing the process: {ex.Message}");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("No running processes found for the given application name.");
+            }
+
         }
 
     }
