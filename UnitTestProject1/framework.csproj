@@ -158,17 +158,20 @@
     <Compile Include="appl\AppManager.cs" />
     <Compile Include="appl\AppWindow.cs" />
     <Compile Include="CalculatorVar\Customvar.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Elements\AppBaseItem.cs" />
     <Compile Include="Elements\AppButtons.cs" />
     <Compile Include="Elements\AppLabel.cs" />
     <Compile Include="Elements\AppSearchCriteria.cs" />
     <Compile Include="Elements\AppMenu.cs" />
-    <Compile Include="Hooks\Hooks.cs" />
     <Compile Include="Hooks\Hooks1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\AppPath.txt" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,8 +22,11 @@ namespace UnitTestProject1.appl
         public static void LanuchApp(string path)
         {
 
-            path = "C:\\Program Files\\OldClassicCalc\\calc1.exe";
-            application = Application.Launch(path);
+            //path = "C:\\Program Files\\OldClassicCalc\\calc1.exe";
+            //application = Application.Launch(path);
+            var apppath = Configuration.Configuration.path();
+
+            application = Application.Launch(apppath);
 
         }
 
