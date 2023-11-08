@@ -25,9 +25,7 @@ namespace SpecFlowProject10.StepDefinitions
         [Given(@": Open  Calculator Application and")]
         public void GivenOpenCalculatorApplicationAnd()
         {
-
-            string path = calculatorvar1.calpath();// All variable class
-            AppManager.LanuchApp("Calculator");
+            AppManager.LanuchApp("calculator");
 
         }
 
@@ -41,13 +39,13 @@ namespace SpecFlowProject10.StepDefinitions
         public void ThenPerformOperationsInStandardMode()
         {
             calculator.EnterNumber("12");
-            calculator.EnterOperator("+");
+            calculator.EnterPlus();
             calculator.EnterNumber("999");
-            calculator.EnterOperator("=");
-            calculator.EnterOperator("M+");
-            calculator.EnterOperator("+");
+            calculator.EnterEqual();
+            calculator.EnterMPlus();
+            calculator.EnterPlus();
             calculator.EnterNumber("19");
-            calculator.EnterOperator("=");
+            calculator.EnterEqual();
         }
 
         [Then(@":  Click on View Menu and select the Scientific Option")]
@@ -60,12 +58,13 @@ namespace SpecFlowProject10.StepDefinitions
         public void ThenPerformOperationsInScientificMode()
         {
             calculator.EnterNumber("12");
-            calculator.EnterOperator("+");
+            calculator.EnterPlus();
             calculator.EnterNumber("999");
-            calculator.EnterOperator("=");
-            calculator.EnterOperator("M+");
+            calculator.EnterEqual();
+            calculator.EnterMPlus();
+            calculator.EnterPlus();
             calculator.EnterNumber("19");
-            calculator.EnterOperator("^2");
+            calculator.EnterSquare();
         }
 
         [Then(@": Result Should Be (.*)")]

@@ -77,9 +77,11 @@ namespace Test.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Performing Addation operation Using standard Version")]
+        [NUnit.Framework.CategoryAttribute("tag1")]
         public void PerformingAddationOperationUsingStandardVersion()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Performing Addation operation Using standard Version", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9
@@ -108,7 +110,7 @@ namespace Test.Features
  testRunner.Then(": Perform Operations in Scientific Mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 16
- testRunner.Then(": Result Should Be 362", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(": Result Should Be 361", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
