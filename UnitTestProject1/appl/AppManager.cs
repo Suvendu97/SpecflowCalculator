@@ -1,4 +1,5 @@
-﻿using SpecFlow.Internal.Json;
+﻿using Pilot_FrameWork.Utils.Configuration;
+using SpecFlow.Internal.Json;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -19,12 +20,13 @@ namespace UnitTestProject1.appl
         static Application application;
         // public Application application;
 
-        public static void LanuchApp(string path)
+        public static void LanuchApp(string appname)
         {
 
             //path = "C:\\Program Files\\OldClassicCalc\\calc1.exe";
             //application = Application.Launch(path);
-            var apppath = Configuration.Configuration.path();
+            var apppath = Configuration.path(appname);
+            Console.WriteLine($"App Path is : {apppath}");
 
             application = Application.Launch(apppath);
 

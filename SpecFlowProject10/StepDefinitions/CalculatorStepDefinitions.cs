@@ -25,9 +25,7 @@ namespace SpecFlowProject10.StepDefinitions
         [Given(@": Open  Calculator Application and")]
         public void GivenOpenCalculatorApplicationAnd()
         {
-
-            string path = calculatorvar1.calpath();// All variable class
-            AppManager.LanuchApp("Calculator");
+            AppManager.LanuchApp("calculator");
 
         }
 
