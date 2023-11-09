@@ -13,13 +13,14 @@ using TestStack.White.Utility;
 using UnitTestProject1.appl;
 using UnitTestProject1.Elements;
 using TestStack.White;
-
+using NLog;
 
 namespace Test.Form
 {
 
     public class CalculatorForm : AppBaseItem
     {
+        private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
         // private string one1=Getautoids("1");
         private AppButtons button1 = new AppButtons(SearchCriteria.ByAutomationId("131"), "Number1");
         private AppButtons ButtonPlus => new AppButtons(SearchCriteria.ByAutomationId("93"), "Number");
@@ -76,7 +77,6 @@ namespace Test.Form
         {
             Label resultTextBox = AppManager.AppGetWindow().appWindow.Get<Label>(SearchCriteria.ByAutomationId("158"));
             string result = resultTextBox.Text;
-            Console.WriteLine(result);
             return result;
         }
 

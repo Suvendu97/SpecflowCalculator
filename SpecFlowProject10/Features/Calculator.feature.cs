@@ -35,7 +35,7 @@ namespace Test.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Peform Operation On Calculator", "//@outline", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Peform Operation On Calculator", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,11 +75,18 @@ namespace Test.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check for result for operation")]
+        [NUnit.Framework.CategoryAttribute("outline")]
         [NUnit.Framework.TestCaseAttribute("Standard", "12", "999", "19", "1030", null)]
         [NUnit.Framework.TestCaseAttribute("Scientific", "12", "999", "19", "361", null)]
         public void CheckForResultForOperation(string specificMode, string numb1, string numb2, string numb3, string numb4, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "outline"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("SpecificMode", specificMode);
             argumentsOfScenario.Add("Numb1", numb1);
