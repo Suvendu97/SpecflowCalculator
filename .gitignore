@@ -10,7 +10,6 @@
 *.t_
 *.jar
 *.dll
-**/Waters.UIAutomation.SDMS.TestingGroup/**/*.feature.cs
  
 _ccmwaid.inf
 EDN.ini
@@ -38,7 +37,6 @@ Temp
  
 # shared files downloaded by build scripts
 NuGet.config
-waters.pko.snk
 .gradle
 /tools
  
