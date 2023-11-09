@@ -12,7 +12,7 @@ namespace Test.Configuration
         static string[] configFileLines;
         public static string path(string appname)
         {
-            string configFilePath = "C:\\Users\\conspol\\source\\repos\\new one\\SpecflowCalculator\\SpecflowCalculator\\SpecFlowProject10\\Configuration\\AppConfig.txt";
+            string configFilePath = "C:\\Users\\conspol\\source\\repos\\final\\SpecflowCalculator\\SpecFlowProject10\\Configuration\\AppConfig.txt";
             configFileLines = File.ReadAllLines(configFilePath);
 
             var app1Path = GetPath(appname);
