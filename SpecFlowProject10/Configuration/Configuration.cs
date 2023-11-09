@@ -9,79 +9,51 @@ namespace Test.Configuration
     public class Configuration
 
     {
-
         static string[] configFileLines;
-
         public static string path(string appname)
-
         {
+            string configFilePath = "C:\\Users\\conspol\\source\\repos\\new one\\SpecflowCalculator\\SpecflowCalculator\\SpecFlowProject10\\Configuration\\AppConfig.txt";
+            configFileLines = File.ReadAllLines(configFilePath);
 
-            string configFilePath = "C:\\Users\\conspol\\source\\repos\\CalculatorApp\\SpecflowCalculator\\UnitTestProject1\\Configuration\\AppConfig.txt";
-
-            configFileLines = File.ReadAllLines(configFilePath); // Read and store the line
-
-            var app1Path = GetPath(appname); // Access path for Application1
-
-            var app1WindowName = GetWindowName(appname); // Access window name for Application
-
-            Console.WriteLine($"Application 1 Path: {app1Path}");
-
-            Console.WriteLine($"Application 1 Window Name: {app1WindowName}");
-
+            var app1Path = GetPath(appname);
+            for (int i = 0; i < configFileLines.Length; i++)
+            {
+                string lines = configFileLines[i];
+                Console.WriteLine($"configline is {lines}");
+            }
+            //Console.WriteLine($"configpath is {configFilePath}");
+            //Console.WriteLine($"appname is {appname}");
+            //Console.WriteLine($"Configuration calculator path is {app1Path}");
+            var app1WindowName = GetWindowName(appname);
             return app1Path;
-
         }
-
         static string GetPath(string appName)
-
         {
-
-            Console.WriteLine($" abcd {appName}");
+            //Console.WriteLine($"appname inside getpath is {appName}");
 
             foreach (var line in configFileLines)
-
             {
-
                 if (line.Contains($"{appName} Path:"))
-
                 {
-
+                    string result = line.Replace($"{appName} Path: ", "");
+                    //Console.WriteLine($"result inside getpath is {result}");
                     return line.Replace($"{appName} Path: ", "");
-
                 }
-
             }
-
-            return null; // Handle the case where the application name is not found
-
+            return null;
         }
-
         static string GetWindowName(string appName)
-
         {
-
             foreach (var line in configFileLines)
-
             {
-
                 if (line.Contains($"{appName} WindowName:"))
-
                 {
-
                     return line.Replace($"{appName} WindowName: ", "");
-
                 }
-
             }
-
-            return null; // Handle the case where the application name is not found
-
+            return null;
         }
-
     }
-
-
-
 }
 
 

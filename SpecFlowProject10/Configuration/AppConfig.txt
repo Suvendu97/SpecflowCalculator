@@ -1,4 +1,4 @@
-﻿calcualtor Path: C:\Program Files\OldClassicCalc\calc1.exe
+﻿calculator Path: C:\Program Files\OldClassicCalc\calc1.exe
 calcualtor WindowName: Calculator
 Path: D:\AnotherFolder\Application2\app.exe
 WindowName: App2

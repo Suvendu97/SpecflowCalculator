@@ -14,9 +14,8 @@ namespace UnitTestProject1.appl
 
             //path = "C:\\Program Files\\OldClassicCalc\\calc1.exe";
             //application = Application.Launch(path);
-            //var apppath = Configuration.path(appname);
+            //string apppath = Configuration.path(appname);
             //Console.WriteLine($"App Path is : {apppath}");
-
             application = Application.Launch(appPath);
 
         }
