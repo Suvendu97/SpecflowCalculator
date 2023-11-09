@@ -8,7 +8,7 @@ namespace UnitTestProject1.Hooks
     {
         // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
 
-        [BeforeScenario("@tag1")]
+        [BeforeScenario("@outline")]
         public void BeforeScenarioWithTag()
         {
             CalculatorForm.CloseInstanceOfApplication("calc1");
