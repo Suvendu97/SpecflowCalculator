@@ -1,20 +1,21 @@
 ﻿
 
 
+Feature: Peform Operation On Calculator
 
-Feature: Perform  Operations on  Calculator Application such as addation ,storing the result 
 
-
-	@tag1
-	Scenario: Performing Addation operation Using standard Version 
-	#Step1
-	Given : Open  Calculator Application and 
-	And   : Click on View Menu and select the Standard Option
-	Then  : Perform Operations in Standard Mode
-	Then  :  Click on View Menu and select the Scientific Option
-	Then  : Perform Operations in Scientific Mode
-	Then  : Result Should Be 361
-
+#@outline
+    Scenario Outline: Check for result for operation
+	Given  Open the Calculator Application 
+	And   : Select the Mode '<SpecificMode>'
+	Then  : I Enter '<Numb1>' '<numb2>' and perform add operation
+	And   : Then I Click M+
+	And   : Use square root if its scientific '<numb3>'
+	And   : The Result should be '<numb4>'
 	
 
+	Examples: 
+				| SpecificMode	| Numb1 | numb2 | numb3 | numb4 |
+				| Standard		|   12  | 999   | 19    | 1030  |
+				|Scientific		|  12   | 999   | 19    | 361   |
 	

@@ -72,7 +72,7 @@ namespace Test.Form
             clickscientific.Click();
         }
 
-        public string GetResult()
+        public static string GetResult()
         {
             Label resultTextBox = AppManager.AppGetWindow().appWindow.Get<Label>(SearchCriteria.ByAutomationId("158"));
             string result = resultTextBox.Text;
@@ -80,7 +80,7 @@ namespace Test.Form
             return result;
         }
 
-        public bool CompareResult(string expectedValue)
+        public static bool CompareResult(string expectedValue)
         {
             bool result = false;
             string obtainedResult = GetResult();

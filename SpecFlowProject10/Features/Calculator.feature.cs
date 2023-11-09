@@ -20,9 +20,8 @@ namespace Test.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Perform  Operations on  Calculator Application such as addation ,storing the resu" +
-        "lt")]
-    public partial class PerformOperationsOnCalculatorApplicationSuchAsAddationStoringTheResultFeature
+    [NUnit.Framework.DescriptionAttribute("Peform Operation On Calculator")]
+    public partial class PeformOperationOnCalculatorFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -36,8 +35,7 @@ namespace Test.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Perform  Operations on  Calculator Application such as addation ,storing the resu" +
-                    "lt", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Peform Operation On Calculator", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,16 +74,21 @@ namespace Test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Performing Addation operation Using standard Version")]
-        [NUnit.Framework.CategoryAttribute("tag1")]
-        public void PerformingAddationOperationUsingStandardVersion()
+        [NUnit.Framework.DescriptionAttribute("Check for result for operation")]
+        [NUnit.Framework.TestCaseAttribute("Standard", "12", "999", "19", "1031", null)]
+        [NUnit.Framework.TestCaseAttribute("Scientific", "12", "999", "19", "362", null)]
+        public void CheckForResultForOperation(string specificMode, string numb1, string numb2, string numb3, string numb4, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Performing Addation operation Using standard Version", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
- this.ScenarioInitialize(scenarioInfo);
+            argumentsOfScenario.Add("SpecificMode", specificMode);
+            argumentsOfScenario.Add("Numb1", numb1);
+            argumentsOfScenario.Add("numb2", numb2);
+            argumentsOfScenario.Add("numb3", numb3);
+            argumentsOfScenario.Add("numb4", numb4);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check for result for operation", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 8
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -94,23 +97,23 @@ namespace Test.Features
             else
             {
                 this.ScenarioStart();
+#line 9
+ testRunner.Given("Open the Calculator Application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 10
+ testRunner.And(string.Format(": Select the Mode \'{0}\'", specificMode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 11
- testRunner.Given(": Open  Calculator Application and", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Then(string.Format(": I Enter \'{0}\' \'{1}\' and perform add operation", numb1, numb2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 12
- testRunner.And(": Click on View Menu and select the Standard Option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(": Then I Click M+", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
- testRunner.Then(": Perform Operations in Standard Mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format(": Use square root if its scientific \'{0}\'", numb3), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
- testRunner.Then(":  Click on View Menu and select the Scientific Option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 15
- testRunner.Then(": Perform Operations in Scientific Mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 16
- testRunner.Then(": Result Should Be 361", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format(": The Result should be \'{0}\'", numb4), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
