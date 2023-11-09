@@ -27,7 +27,6 @@ namespace SpecFlowProject10.StepDefinitions
         public void GivenOpenTheCalculatorApplication()
         {
             string path = Configuration.path("calculator");
-            //Console.WriteLine($"calculator path is {path}");
             AppManager.LanuchApp(path);
         }
 
@@ -41,10 +40,6 @@ namespace SpecFlowProject10.StepDefinitions
         [Then(@": I Enter '([^']*)' '([^']*)' and perform add operation")]
         public void ThenIEnterAndPerformAddOperation(string p0, string p1)
         {
-            //string num1 = p0.ToString();
-            //Console.WriteLine(num1);
-            //string num2 = p1.ToString();
-
             calculator.EnterNumber(p0);
             calculator.EnterPlus();
             calculator.EnterNumber(p1);
@@ -62,10 +57,8 @@ namespace SpecFlowProject10.StepDefinitions
         {
             if (smode == "Scientific")
             {
-                //calculator.EnterClear();
                 calculator.EnterNumber(p0);
                 calculator.EnterSquare();
-                //calculator.EnterEqual();
             }
             else
             {
@@ -91,71 +84,6 @@ namespace SpecFlowProject10.StepDefinitions
                 Console.WriteLine("The obtained result does not match the expected value.");
             }
         }
-
-        /* [Given(@": Open  Calculator Application and")]
-        public void GivenOpenCalculatorApplicationAnd()
-        {
-            string path = Configuration.path("calculator");
-            //Console.WriteLine($"calculator path is {path}");
-            AppManager.LanuchApp(path);
-
-        }
-
-        [Given(@": Click on View Menu and select the Standard Option")]
-        public void GivenClickOnViewMenuAndSelectTheStandardOption()
-        {
-            calculator.EnterMode("Standard");
-        }
-
-        [Then(@": Perform Operations in Standard Mode")]
-        public void ThenPerformOperationsInStandardMode()
-        {
-            calculator.EnterNumber("12");
-            calculator.EnterPlus();
-            calculator.EnterNumber("999");
-            calculator.EnterEqual();
-            calculator.EnterMPlus();
-            calculator.EnterPlus();
-            calculator.EnterNumber("19");
-            calculator.EnterEqual();
-        }
-
-        [Then(@":  Click on View Menu and select the Scientific Option")]
-        public void ThenClickOnViewMenuAndSelectTheScientificOption()
-        {
-            calculator.EnterMode("Scientific");
-        }
-
-        [Then(@": Perform Operations in Scientific Mode")]
-        public void ThenPerformOperationsInScientificMode()
-        {
-            calculator.EnterNumber("12");
-            calculator.EnterPlus();
-            calculator.EnterNumber("999");
-            calculator.EnterEqual();
-            calculator.EnterMPlus();
-            calculator.EnterPlus();
-            calculator.EnterNumber("19");
-            calculator.EnterSquare();
-        }
-
-        [Then(@": Result Should Be (.*)")]
-        public void ThenResultShouldBe(int p0)
-        {
-            string expectedValue = p0.ToString();
-            bool compareReslt = calculator.CompareResult(expectedValue);
-            if (compareReslt==true)
-            {
-                Console.WriteLine("The obtained result matches the expected value.");
-            }
-            else
-            {
-                Console.WriteLine("The obtained result does not match the expected value.");
-            }
-
-        }
-
-        */
 
     }
 }

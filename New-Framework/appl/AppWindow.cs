@@ -4,8 +4,6 @@ using TestStack.White.UIItems.WindowItems;
 
 namespace UnitTestProject1.appl
 {
-    
-
     public class AppWindow
     {
 

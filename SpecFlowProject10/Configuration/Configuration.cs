@@ -21,22 +21,17 @@ namespace Test.Configuration
                 string lines = configFileLines[i];
                 Console.WriteLine($"configline is {lines}");
             }
-            //Console.WriteLine($"configpath is {configFilePath}");
-            //Console.WriteLine($"appname is {appname}");
-            //Console.WriteLine($"Configuration calculator path is {app1Path}");
+
             var app1WindowName = GetWindowName(appname);
             return app1Path;
         }
         static string GetPath(string appName)
         {
-            //Console.WriteLine($"appname inside getpath is {appName}");
-
             foreach (var line in configFileLines)
             {
                 if (line.Contains($"{appName} Path:"))
                 {
                     string result = line.Replace($"{appName} Path: ", "");
-                    //Console.WriteLine($"result inside getpath is {result}");
                     return line.Replace($"{appName} Path: ", "");
                 }
             }

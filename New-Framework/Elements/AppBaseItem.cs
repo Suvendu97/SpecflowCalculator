@@ -17,7 +17,6 @@ namespace UnitTestProject1.Elements
 
         }
 
-
         public  IUIItem UIGetElement(   )
         {
 
@@ -28,8 +27,6 @@ namespace UnitTestProject1.Elements
         {
             var clickButton = UIGetElement();
             clickButton.Click();
-
-
         }
 
         public void doubleclick()
