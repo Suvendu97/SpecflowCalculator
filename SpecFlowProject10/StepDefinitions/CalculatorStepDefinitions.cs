@@ -9,23 +9,24 @@ using System.Windows.Automation;
 using NUnit.Framework;
 using UnitTestProject1.Elements;
 using UnitTestProject1.appl;
-using UnitTestProject1.CalculatorVar;
 using TestStack.White.UIItems.WPFUIItems;
 using Test.Form;
 using TechTalk.SpecFlow.CommonModels;
+using Test.Configuration;
+
 
 namespace SpecFlowProject10.StepDefinitions
 {
     [Binding]
     public class CalculatorStepDefinitions
     {
-        Customvar calculatorvar1 = new Customvar();
         CalculatorForm calculator = new CalculatorForm(SearchCriteria.All, "");
 
         [Given(@": Open  Calculator Application and")]
         public void GivenOpenCalculatorApplicationAnd()
         {
-            AppManager.LanuchApp("calculator");
+            var path = Configuration.path("calculator");
+            AppManager.LanuchApp(path);
 
         }
 

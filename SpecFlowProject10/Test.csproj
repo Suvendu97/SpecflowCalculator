@@ -9,24 +9,27 @@
 
   <ItemGroup>
     <Compile Remove="Drivers\**" />
-    <Compile Remove="Hooks\**" />
     <Compile Remove="Support\**" />
     <EmbeddedResource Remove="Drivers\**" />
-    <EmbeddedResource Remove="Hooks\**" />
     <EmbeddedResource Remove="Support\**" />
     <None Remove="Drivers\**" />
-    <None Remove="Hooks\**" />
     <None Remove="Support\**" />
     <SpecFlowFeatureFiles Remove="Drivers\**" />
-    <SpecFlowFeatureFiles Remove="Hooks\**" />
     <SpecFlowFeatureFiles Remove="Support\**" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Drivers\**" />
-    <SpecFlowObsoleteCodeBehindFiles Remove="Hooks\**" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Support\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Configuration\AppConfig.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Calculator - Copy.feature.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Configuration\AppConfig.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,7 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnitTestProject1\framework.csproj" />
+    <ProjectReference Include="..\New-Framework\New-Framework.csproj" />
   </ItemGroup>
 
 </Project>
