@@ -21,60 +21,54 @@ namespace SpecFlowProject10.StepDefinitions
     public class CalculatorStepDefinitions
     {
         CalculatorForm calculator = new CalculatorForm(SearchCriteria.All, "");
-        string smode;
 
-        [Given(@"Open the Calculator Application")]
-        public void GivenOpenTheCalculatorApplication()
+        [Given(@"Calculator is Opened")]
+        public void GivenCalculatorIsOpened()
         {
             var path = Configuration.Path("calculator");
             AppManager.LanuchApp(path);
         }
 
-        [Given(@": Select the Mode '(.*)'")]
-        public void GivenSelectTheMode(string mode)
+        [When(@": I Select the Mode '([^']*)'")]
+        public void WhenISelectTheMode(string mode)
         {
-            smode = mode;
             calculator.EnterMode(mode);
         }
 
-        [Then(@": I Enter '(.*)' '(.*)' and perform add operation")]
-        public void ThenIEnterAndPerformAddOperation(string numb1, string numb2)
+        [Then(@": I Input (.*)")]
+        public void ThenIInput(int number)
         {
-            calculator.EnterNumber(numb1);
-            calculator.EnterPlus();
-            calculator.EnterNumber(numb2);
-            calculator.EnterEqual();
+            string numb = number.ToString();
+            calculator.EnterNumber(numb);
         }
 
-        [Then(@": Then I Click M\+")]
-        public void ThenThenIClickM()
+        [Then(@": I perform '(.*)' action")]
+        public void ThenIPerformAction(string action)
         {
-            calculator.EnterMPlus();
-        }
-
-        [Then(@": Use square root if its scientific '(.*)'")]
-        public void ThenUseSquareRootIfItsScientific(string numb3)
-        {
-            if (smode == "Scientific")
+            switch(action)
             {
-                calculator.EnterNumber(numb3);
-                calculator.EnterSquare();
-            }
-            else
-            {
-                calculator.EnterPlus();
-                calculator.EnterNumber(numb3);
-                calculator.EnterEqual();
+                case "add":
+                    calculator.EnterPlus();
+                    break;
+                case "equal":
+                    calculator.EnterEqual();
+                    break;
+                case "StoreinMemory":
+                    calculator.EnterMPlus();
+                    break;
+                case "Square":
+                    calculator.EnterSquare();
+                    break;
             }
         }
 
-        [Then(@": The Result should be '([^']*)'")]
-        public void ThenTheResultShouldBe(string numb4)
+
+        [Then(@": The Result is '(.*)'")]
+        public void ThenTheResultIs(string expectedResult)
         {
             Label resultTextBox = AppManager.AppGetWindow().appWindow.Get<Label>(SearchCriteria.ByAutomationId("158"));
             var resultValue = resultTextBox.Text;
-            Assert.AreEqual(numb4, resultValue);
-
+            Assert.AreEqual(expectedResult, resultValue);
         }
 
     }
