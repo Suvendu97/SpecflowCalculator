@@ -26,18 +26,18 @@ namespace SpecFlowProject10.StepDefinitions
         [Given(@"Open the Calculator Application")]
         public void GivenOpenTheCalculatorApplication()
         {
-            string path = Configuration.path("calculator");
+            var path = Configuration.Path("calculator");
             AppManager.LanuchApp(path);
         }
 
-        [Given(@": Select the Mode '([^']*)'")]
+        [Given(@": Select the Mode '(.*)'")]
         public void GivenSelectTheMode(string mode)
         {
             smode = mode;
             calculator.EnterMode(mode);
         }
 
-        [Then(@": I Enter '([^']*)' '([^']*)' and perform add operation")]
+        [Then(@": I Enter '(.*)' '(.*)' and perform add operation")]
         public void ThenIEnterAndPerformAddOperation(string p0, string p1)
         {
             calculator.EnterNumber(p0);
@@ -52,7 +52,7 @@ namespace SpecFlowProject10.StepDefinitions
             calculator.EnterMPlus();
         }
 
-        [Then(@": Use square root if its scientific '([^']*)'")]
+        [Then(@": Use square root if its scientific '(.*)'")]
         public void ThenUseSquareRootIfItsScientific(string p0)
         {
             if (smode == "Scientific")
@@ -71,7 +71,7 @@ namespace SpecFlowProject10.StepDefinitions
         [Then(@": The Result should be '([^']*)'")]
         public void ThenTheResultShouldBe(string p0)
         {
-            string num4 = p0.ToString();
+            //string num4 = p0.ToString();
 
             bool compareReslt = CalculatorForm.CompareResult(p0);
 

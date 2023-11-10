@@ -21,8 +21,6 @@ namespace Test.Form
     public class CalculatorForm : AppBaseItem
     {
         private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
-        // private string one1=Getautoids("1");
-        private AppButtons button1 = new AppButtons(SearchCriteria.ByAutomationId("131"), "Number1");
         private AppButtons ButtonPlus => new AppButtons(SearchCriteria.ByAutomationId("93"), "Number");
         private AppButtons ButtonMPlus => new AppButtons(SearchCriteria.ByAutomationId("125"), "Number");
         private AppButtons ButtonEqual => new AppButtons(SearchCriteria.ByAutomationId("121"), "Number");
@@ -32,7 +30,7 @@ namespace Test.Form
         public CalculatorForm(SearchCriteria searchCriteria, string friendlyname) : base(searchCriteria, friendlyname)
         {
         }
-        public AppButtons getButton(string number)
+        public AppButtons GetButton(string number)
         {
             return new AppButtons(SearchCriteria.ByAutomationId($"13{number}"), "number");
 
@@ -42,8 +40,8 @@ namespace Test.Form
         {
             for (int i = 0; i < number.Length; i++)
             {
-                string value = Char.ToString(number[i]);
-                AppButtons button = getButton(value);
+                var value = Char.ToString(number[i]);
+                AppButtons button = GetButton(value);
                 button.Click();
             }
         }
@@ -76,14 +74,14 @@ namespace Test.Form
         public static string GetResult()
         {
             Label resultTextBox = AppManager.AppGetWindow().appWindow.Get<Label>(SearchCriteria.ByAutomationId("158"));
-            string result = resultTextBox.Text;
+            var result = resultTextBox.Text;
             return result;
         }
 
         public static bool CompareResult(string expectedValue)
         {
             bool result = false;
-            string obtainedResult = GetResult();
+            var obtainedResult = GetResult();
             if (obtainedResult != null)
             {
                 if(obtainedResult == expectedValue)

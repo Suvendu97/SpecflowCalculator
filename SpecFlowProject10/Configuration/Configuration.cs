@@ -1,35 +1,21 @@
-﻿using System;
-using System.IO;
-using NLog;
+﻿using NLog;
+using TechTalk.SpecFlow.Configuration.AppConfig;
 
 namespace Test.Configuration
 
 {
-
     public class Configuration
 
     {
         private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
         static string[] configFileLines;
-        public static string path(string appname)
+        public static string Path(string appname)
         {
-            //string configFilePath = "C:\\Users\\conspol\\source\\repos\\final\\SpecflowCalculator\\SpecFlowProject10\\Configuration\\AppConfig.txt";
-            //configFileLines = File.ReadAllLines(configFilePath);
-
-            //var app1Path = GetPath(appname);
-            /*for (int i = 0; i < configFileLines.Length; i++)
-            {
-                string lines = configFileLines[i];
-                Console.WriteLine($"configline is {lines}");
-            } */
-
-            //var app1WindowName = GetWindowName(appname);
-            //return app1Path;
-
             try
             {
-                string configFilePath = "C:\\Users\\conspol\\source\\repos\\final\\SpecflowCalculator\\SpecFlowProject10\\Configuration\\AppConfig.txt";
-                configFileLines = File.ReadAllLines(configFilePath);
+                var currentPath = Directory.GetCurrentDirectory();
+                var absolutepath = $"{currentPath}/../../../Configuration/AppConfig.txt";
+                configFileLines = File.ReadAllLines(absolutepath);
 
                 var app1Path = GetPath(appname);
                 return app1Path;
@@ -42,24 +28,13 @@ namespace Test.Configuration
         }
         static string GetPath(string appName)
         {
-            /*foreach (var line in configFileLines)
-            {
-                if (line.Contains($"{appName} Path:"))
-                {
-                    string result = line.Replace($"{appName} Path: ", "");
-                    return line.Replace($"{appName} Path: ", "");
-                }
-            }
-            return null;
-            */
-
             try
             {
                 foreach (var line in configFileLines)
                 {
                     if (line.Contains($"{appName} Path:"))
                     {
-                        string result = line.Replace($"{appName} Path: ", "");
+                        var result = line.Replace($"{appName} Path: ", "");
                         return line.Replace($"{appName} Path: ", "");
                     }
                 }
