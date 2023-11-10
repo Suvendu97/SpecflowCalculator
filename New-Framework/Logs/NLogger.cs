@@ -1,9 +1,12 @@
 ﻿using NLog;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-
-namespace Test.Configuration
+namespace New_Framework.Logs
 {
-    
     public static class NLogger
     {
         private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
@@ -24,8 +27,7 @@ namespace Test.Configuration
                 case "Debug":
                     Logger.Debug(message);
                     break;
-            } 
+            }
         }
     }
-    
 }

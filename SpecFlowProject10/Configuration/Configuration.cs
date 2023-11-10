@@ -1,5 +1,6 @@
 ﻿using NLog;
 using TechTalk.SpecFlow.Configuration.AppConfig;
+using New_Framework.Logs;
 
 namespace Test.Configuration
 

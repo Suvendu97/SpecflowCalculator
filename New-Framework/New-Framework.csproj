@@ -85,9 +85,11 @@
     <Compile Include="Elements\AppButtons.cs" />
     <Compile Include="Elements\AppLabel.cs" />
     <Compile Include="Elements\AppMenu.cs" />
+    <Compile Include="Logs\NLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="NLog.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
