@@ -55,6 +55,13 @@ namespace Test.Form
             ClickView.ClickMenuItem(Mode);
         }
 
+        public static string GetResult()
+        {
+            AppLabel appLabel = new AppLabel(SearchCriteria.ByAutomationId("158"), "lsbel");
+            var ObtainedResult = appLabel.GetLabelText();
+            return ObtainedResult;
+        }
+
     }
 
 }

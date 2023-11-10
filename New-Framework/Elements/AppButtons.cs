@@ -1,8 +1,6 @@
 ﻿
 using TestStack.White.UIItems.Finders;
 
-
-
 namespace UnitTestProject1.Elements
 {
 

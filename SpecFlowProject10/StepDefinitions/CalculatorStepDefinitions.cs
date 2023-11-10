@@ -57,9 +57,8 @@ namespace SpecFlowProject10.StepDefinitions
         [Then(@": The Result is '(.*)'")]
         public void ThenTheResultIs(string expectedResult)
         {
-            Label resultTextBox = AppManager.AppGetWindow().appWindow.Get<Label>(SearchCriteria.ByAutomationId("158"));
-            var resultValue = resultTextBox.Text;
-            Assert.AreEqual(expectedResult, resultValue);
+            var result = CalculatorForm.GetResult();
+            Assert.AreEqual(expectedResult, result);
         }
 
     }
