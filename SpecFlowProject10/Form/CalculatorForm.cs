@@ -65,10 +65,7 @@ namespace Test.Form
         public void EnterMode(string Mode)
         {
             AppMenu ClickView = new AppMenu(SearchCriteria.ByText("View"), "Option");
-            ClickView.doubleclick();
-
-            AppMenu clickscientific = new AppMenu(SearchCriteria.ByText(Mode), "Mode");
-            clickscientific.Click();
+            ClickView.ClickMenuItem(Mode);
         }
 
         public static void CloseInstanceOfApplication(string processName)

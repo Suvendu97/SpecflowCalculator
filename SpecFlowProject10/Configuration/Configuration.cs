@@ -18,11 +18,13 @@ namespace Test.Configuration
                 configFileLines = File.ReadAllLines(absolutepath);
 
                 var app1Path = GetPath(appname);
+                NLogger.Log("Info", $"Path is {app1Path}");
                 return app1Path;
             }
             catch (Exception ex)
             {
-                Logger.Error($"Error reading configuration file: {ex.Message}");
+                NLogger.Log("Error", $"Error reading configuration file: {ex.Message}");
+                //Logger.Error($"Error reading configuration file: {ex.Message}");
                 return null;
             }
         }

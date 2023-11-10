@@ -5,7 +5,6 @@ using UnitTestProject1.appl;
 using NLog;
 using System;
 
-
 namespace UnitTestProject1.Elements
 {
     public class AppBaseItem
@@ -41,7 +40,9 @@ namespace UnitTestProject1.Elements
             //clickButton.Click();
             try
             {
-                Logger.Info($"Clicked {_friendlyname} button successfully.");
+                //Logger.Info($"Clicked {_friendlyname} button successfully.");
+
+                //NLogger.Log("Info", "message");
                 var clickButton = UIGetElement();
                 clickButton.Click();
 
@@ -52,15 +53,15 @@ namespace UnitTestProject1.Elements
             }
         }
 
-        public void doubleclick()
+        public void Doubleclick()
         {
             //var ClickMenu = UIGetElement();
             //ClickMenu.DoubleClick();
             try
             {
                 Logger.Info($"Double-clicked {_friendlyname} element successfully.");
-                var ClickMenu = UIGetElement();
-                ClickMenu.DoubleClick();
+                var element = UIGetElement();
+                element.DoubleClick();
 
             }
             catch (Exception ex)

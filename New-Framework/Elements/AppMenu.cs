@@ -1,4 +1,5 @@
-﻿using TestStack.White.UIItems.Finders;
+﻿using Gherkin.Ast;
+using TestStack.White.UIItems.Finders;
 
 namespace UnitTestProject1.Elements
 {
@@ -9,11 +10,13 @@ namespace UnitTestProject1.Elements
         {
 
         }
-        public void ClickMenuItem()
+        public void ClickMenuItem(string Mode)
         {
+            Doubleclick();
 
+            AppMenu clickscientific = new AppMenu(SearchCriteria.ByText(Mode), "Mode");
+            clickscientific.Click();
         }
-
     }
 }
 
