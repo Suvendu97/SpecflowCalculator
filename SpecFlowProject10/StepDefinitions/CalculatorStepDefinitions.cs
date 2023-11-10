@@ -38,11 +38,11 @@ namespace SpecFlowProject10.StepDefinitions
         }
 
         [Then(@": I Enter '(.*)' '(.*)' and perform add operation")]
-        public void ThenIEnterAndPerformAddOperation(string p0, string p1)
+        public void ThenIEnterAndPerformAddOperation(string numb1, string numb2)
         {
-            calculator.EnterNumber(p0);
+            calculator.EnterNumber(numb1);
             calculator.EnterPlus();
-            calculator.EnterNumber(p1);
+            calculator.EnterNumber(numb2);
             calculator.EnterEqual();
         }
 
@@ -53,36 +53,28 @@ namespace SpecFlowProject10.StepDefinitions
         }
 
         [Then(@": Use square root if its scientific '(.*)'")]
-        public void ThenUseSquareRootIfItsScientific(string p0)
+        public void ThenUseSquareRootIfItsScientific(string numb3)
         {
             if (smode == "Scientific")
             {
-                calculator.EnterNumber(p0);
+                calculator.EnterNumber(numb3);
                 calculator.EnterSquare();
             }
             else
             {
                 calculator.EnterPlus();
-                calculator.EnterNumber(p0);
+                calculator.EnterNumber(numb3);
                 calculator.EnterEqual();
             }
         }
 
         [Then(@": The Result should be '([^']*)'")]
-        public void ThenTheResultShouldBe(string p0)
+        public void ThenTheResultShouldBe(string numb4)
         {
-            //string num4 = p0.ToString();
+            Label resultTextBox = AppManager.AppGetWindow().appWindow.Get<Label>(SearchCriteria.ByAutomationId("158"));
+            var resultValue = resultTextBox.Text;
+            Assert.AreEqual(numb4, resultValue);
 
-            bool compareReslt = CalculatorForm.CompareResult(p0);
-
-            if (compareReslt == true)
-            {
-                Console.WriteLine("The obtained result matches the expected value.");
-            }
-            else
-            {
-                Console.WriteLine("The obtained result does not match the expected value.");
-            }
         }
 
     }

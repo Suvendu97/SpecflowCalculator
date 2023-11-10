@@ -71,27 +71,6 @@ namespace Test.Form
             clickscientific.Click();
         }
 
-        public static string GetResult()
-        {
-            Label resultTextBox = AppManager.AppGetWindow().appWindow.Get<Label>(SearchCriteria.ByAutomationId("158"));
-            var result = resultTextBox.Text;
-            return result;
-        }
-
-        public static bool CompareResult(string expectedValue)
-        {
-            bool result = false;
-            var obtainedResult = GetResult();
-            if (obtainedResult != null)
-            {
-                if(obtainedResult == expectedValue)
-                result=true;
-                return result;
-            }
-            return result; // or handle accordingly
-        }
-
-
         public static void CloseInstanceOfApplication(string processName)
         {
             var processes = System.Diagnostics.Process.GetProcesses().Where(p => p.ProcessName.Contains(processName));
