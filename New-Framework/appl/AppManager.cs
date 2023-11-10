@@ -2,8 +2,7 @@
 using System;
 using TestStack.White;
 using NLog;
-using System.Configuration;
-using TestStack.White.UIItems.WindowItems;
+using New_Framework.Logs;
 
 namespace UnitTestProject1.appl
 {
@@ -14,17 +13,15 @@ namespace UnitTestProject1.appl
 
         public static void LanuchApp(string appPath)
         {
-            //Logger.Info($"Application launched successfully.");
-            //application = Application.Launch(appPath);
             try
             {
-                Logger.Info($"Application launched successfully.");
+                NLogger.Log("Info", $"Application launched successfully.");
                 application = Application.Launch(appPath);
 
             }
             catch (Exception ex)
             {
-                Logger.Error($"Error launching application : {ex.Message}");
+                NLogger.Log("Error", $"Error launching application : {ex.Message}");
             }
 
         }
@@ -39,7 +36,7 @@ namespace UnitTestProject1.appl
             }
             catch (Exception ex)
             {
-                Logger.Error($"Error getting the application window: {ex.Message}");
+                NLogger.Log("Error", $"Error getting the application window: {ex.Message}");
                 return null;
             }
         }

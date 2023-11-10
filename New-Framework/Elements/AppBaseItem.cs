@@ -4,6 +4,7 @@ using TestStack.White.UIItems.Finders;
 using UnitTestProject1.appl;
 using NLog;
 using System;
+using New_Framework.Logs;
 
 namespace UnitTestProject1.Elements
 {
@@ -21,8 +22,6 @@ namespace UnitTestProject1.Elements
 
         public  IUIItem UIGetElement(   )
         {
-
-            //return AppManager.AppGetWindow().appWindow.Get(_searchCriteria);
             try
             {
                 return AppManager.AppGetWindow().appWindow.Get(_searchCriteria);
@@ -36,37 +35,32 @@ namespace UnitTestProject1.Elements
         }
         public void Click()
         {
-            //var clickButton = UIGetElement();
-            //clickButton.Click();
             try
             {
-                //Logger.Info($"Clicked {_friendlyname} button successfully.");
-
-                //NLogger.Log("Info", "message");
                 var clickButton = UIGetElement();
                 clickButton.Click();
+                NLogger.Log("Info", $"{_friendlyname} element was clicked");
+
 
             }
             catch (Exception ex)
             {
-                Logger.Error($"Error clicking {_friendlyname} button: {ex.Message}");
+                NLogger.Log("Error", $"Error clicking {_friendlyname} button: {ex.Message}");
             }
         }
 
         public void Doubleclick()
         {
-            //var ClickMenu = UIGetElement();
-            //ClickMenu.DoubleClick();
             try
             {
-                Logger.Info($"Double-clicked {_friendlyname} element successfully.");
+                NLogger.Log("Info", $"Double-clicked {_friendlyname} element successfully.");
                 var element = UIGetElement();
                 element.DoubleClick();
 
             }
             catch (Exception ex)
             {
-                Logger.Error($"Error double-clicking {_friendlyname} element: {ex.Message}");
+                NLogger.Log("Error", $"Error double-clicking {_friendlyname} element: {ex.Message}");
             }
         }
     }

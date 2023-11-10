@@ -1,17 +1,9 @@
-using System;
-using TechTalk.SpecFlow;
+
 using TestStack.White.UIItems.Finders;
-using TestStack.White.UIItems.WindowItems;
 using TestStack.White.UIItems;
-using TestStack.White.Factory;
-using TestStack.White;
-using System.Windows.Automation;
 using NUnit.Framework;
-using UnitTestProject1.Elements;
 using UnitTestProject1.appl;
-using TestStack.White.UIItems.WPFUIItems;
 using Test.Form;
-using TechTalk.SpecFlow.CommonModels;
 using Test.Configuration;
 
 
@@ -61,7 +53,6 @@ namespace SpecFlowProject10.StepDefinitions
                     break;
             }
         }
-
 
         [Then(@": The Result is '(.*)'")]
         public void ThenTheResultIs(string expectedResult)
