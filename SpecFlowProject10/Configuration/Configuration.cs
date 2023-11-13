@@ -24,7 +24,6 @@ namespace Test.Configuration
             catch (Exception ex)
             {
                 NLogger.Log("Error", $"Error reading configuration file: {ex.Message}");
-                //Logger.Error($"Error reading configuration file: {ex.Message}");
                 return null;
             }
         }
@@ -51,15 +50,6 @@ namespace Test.Configuration
         }
         static string GetWindowName(string appName)
         {
-            /*foreach (var line in configFileLines)
-            {
-                if (line.Contains($"{appName} WindowName:"))
-                {
-                    return line.Replace($"{appName} WindowName: ", "");
-                }
-            }
-            return null; */
-
             try
             {
                 foreach (var line in configFileLines)

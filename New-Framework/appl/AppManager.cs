@@ -28,7 +28,6 @@ namespace UnitTestProject1.appl
 
         public static AppWindow AppGetWindow(string title = "")
         {
-            //return new AppWindow(application.GetWindow(title == "" ? "Calculator" : title));
 
             try
             {
