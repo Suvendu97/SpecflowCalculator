@@ -21,6 +21,47 @@ namespace SpecFlowProject10.StepDefinitions
             AppManager.LanuchApp(path);
         }
 
+        [When(@"I Select the Mode '(.*)'")]
+        public void WhenISelectTheMode(string mode)
+        {
+            calculator.EnterMode(mode);
+        }
+
+        [When(@"I Input '(.*)'")]
+        public void WhenIInput(string number)
+        {
+            calculator.EnterNumber(number);
+        }
+
+        [When(@"I perform '(.*)' action")]
+        public void WhenIPerformAction(string action)
+        {
+            switch (action)
+            {
+                case "add":
+                    calculator.EnterPlus();
+                    break;
+                case "equal":
+                    calculator.EnterEqual();
+                    break;
+                case "StoreinMemory":
+                    calculator.EnterMPlus();
+                    break;
+                case "Square":
+                    calculator.EnterSquare();
+                    break;
+            }
+        }
+
+        [Then(@"The Result is '(.*)'")]
+        public void ThenTheResultIs(string expectedResult)
+        {
+            var result = CalculatorForm.GetResult();
+            Assert.AreEqual(expectedResult, result);
+        }
+
+
+        /*
         [When(@": I Select the Mode '([^']*)'")]
         public void WhenISelectTheMode(string mode)
         {
@@ -60,6 +101,8 @@ namespace SpecFlowProject10.StepDefinitions
             var result = CalculatorForm.GetResult();
             Assert.AreEqual(expectedResult, result);
         }
+
+        */
 
     }
 }
